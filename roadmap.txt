@@ -1,0 +1,5 @@
+1 Use gene specific ZINB, observe mse between observed and predicted
+2 Compute mechanicistic composition of gene parameters as new genes, 
+    50% independent genes, 20% dependent genes, 20% seen gene compositions, 10% unseen gene compositions
+3 Try to make some composition genes change with time and try to predict perturbations in a smooth way
+e.g. gene N = (gene1 + gene2 ** 2) * w*t, w learnable parameter

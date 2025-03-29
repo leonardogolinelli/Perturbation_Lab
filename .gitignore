@@ -2,3 +2,6 @@ __pycache__/dataset.cpython-312.pyc
 __pycache__/model.cpython-312.pyc
 __pycache__/training.cpython-312.pyc
 __pycache__/utils.cpython-312.pyc
+__pycache__/perturb.cpython-312.pyc
+trained_models/trained_model_optimizer.pth
+trained_models/trained_model_state_dict.pth

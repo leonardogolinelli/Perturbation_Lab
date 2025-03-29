@@ -16,9 +16,9 @@ def train(vae, optimizer, x, n_epochs, n_cells, mu_values, theta_values, pi_valu
         true_pi_tensor (torch.Tensor): The true pi tensor.
     """
 
-    true_mu_tensor = torch.tensor(np.tile(mu_values, (n_cells, 1)) , dtype=torch.float32).to(device)
-    true_theta_tensor = torch.tensor(np.tile(theta_values, (n_cells, 1)), dtype=torch.float32).to(device)
-    true_pi_tensor = torch.tensor(np.tile(pi_values, (n_cells, 1)), dtype=torch.float32).to(device)
+    true_mu_tensor = torch.tensor(mu_values , dtype=torch.float32).to(device)
+    true_theta_tensor = torch.tensor(theta_values, dtype=torch.float32).to(device)
+    true_pi_tensor = torch.tensor(pi_values, dtype=torch.float32).to(device)
 
     #to_device = lambda x : x.to(device)
 

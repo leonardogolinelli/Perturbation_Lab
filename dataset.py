@@ -50,6 +50,9 @@ def base_genes(n_cells,
     actual_zero_rate = (x == 0).sum() / x.size
     print(f"Actual overall zero proportion: {actual_zero_rate:.4f}")
 
+    tile_up = lambda x : np.tile(x, (n_cells, 1))
+    mu_values, theta_values, pi_values = [tile_up(arr) for arr in [mu_values, theta_values, pi_values]]
+
     return x, mu_values, theta_values, pi_values
 
 def get_mech_dataset(x, 
@@ -65,16 +68,16 @@ def get_mech_dataset(x,
     seed1,seed2 = seeds
     np.random.seed(seed1)
     mean_weights = np.random.uniform(-2, +2, n_genes)
-    mu = np.average(x, axis=1, weights=mean_weights) #mean of ZINB
+    mu = np.sum(x * mean_weights, axis=1) #mean of ZINB
     mu = np.clip(mu, 0.1, None)
 
     np.random.seed(seed2)
     if theta_fixed:
         theta = np.ones_like(mu) * 1e-3
-        mean_dispersion = theta
+        dispersion_weights = None
     else:
-        mean_dispersion = np.random.uniform(-2, +2, n_genes)
-        theta = np.average(x, axis=1, weights=mean_dispersion) #dispersion of ZINB
+        dispersion_weights = np.random.uniform(-2, +2, n_genes)
+        theta = np.average(x, axis=1, weights=dispersion_weights) #dispersion of ZINB
         theta = np.clip(theta, 0.1, None)
 
     r = 1 / theta  
@@ -98,11 +101,13 @@ def get_mech_dataset(x,
 
     x_comb = nb_samples
 
-    tile_up = lambda x : np.tile(x, (n_cells, 1))
-    mu_values, theta_values, pi_values = [tile_up(arr) for arr in [mu_values, theta_values, pi_values]]
+    #tile_up = lambda x : np.tile(x, (n_cells, 1))
+    #mu_values, theta_values, pi_values = [tile_up(arr) for arr in [mu_values, theta_values, pi_values]]
 
     stack_up = lambda x,y : np.hstack((x,y.reshape((n_cells,1))))
     pairs = [(x, x_comb), (mu_values, mu), (theta_values, theta), (pi_values, pi)]
     x, mu_values, theta_values, pi_values = [stack_up(x,y) for x,y in pairs]
 
-    return x, mu_values, theta_values, pi_values, mean_weights, mean_dispersion
+    n_genes += 1
+
+    return x, mu_values, theta_values, pi_values, mean_weights, dispersion_weights, n_genes

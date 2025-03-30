@@ -82,3 +82,18 @@ def plot_umap_pca(adata, color, random_state = 0):
     sc.tl.pca(adata, random_state=random_state)
     sc.pl.umap(adata, color=color)
     sc.pl.pca(adata, color=color)
+
+    # Extract variance ratios
+    var_ratio = adata.uns['pca']['variance_ratio']
+    pcs = np.arange(1, len(var_ratio) + 1)
+
+    # Scree plot
+    plt.figure(figsize=(6, 4))
+    plt.plot(pcs, var_ratio, marker='o')
+    plt.xticks(pcs)  # Set x-axis ticks to integers
+    plt.xlabel('Principal Component')
+    plt.ylabel('Proportion of Variance Explained')
+    plt.title('Scree Plot')
+    plt.grid(True)
+    plt.tight_layout()
+    plt.show()

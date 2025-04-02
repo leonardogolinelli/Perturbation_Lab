@@ -9,4 +9,4 @@ The idea of this repo is to illustrate a way of benchmarking of perturbation pre
 
 **Notebook 3)** Simulate multiple perturbations in one (or potentially more) input gene, and predict the effect on the mechanicistic gene using the VAE trained in notebook 2. Compare the curve of predicted vs observed distribution parameters of the mechanicistic gene under the aforementioned perturbations.
 
-**Notebook 4)** Simulate drug effects on the simulated cells and predict a generalizable effect of such perturbation on cells, by computing the mean difference vector between perturbed and unperturbed cells in the latent space (scGen style).
+**Notebook 4)** Simulate drug effects on the simulated cells and predict a generalizable effect of such perturbation on cells. As a simple example, here I achieved this by computing the mean difference vector between perturbed and unperturbed cells in the latent space (scGen style).

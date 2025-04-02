@@ -21,4 +21,6 @@ In the code, you will find these functions and objects, which may be useful to y
 
 5) produce_perturbed_observations_1gene function in perturb.py takes the simulated gene expression data (base genes + mechanicistic gene) in input, and outputs a desired number of perturbed samples, where a desired base gene is perturbed from 0 (suppressed) up to a value equal to the number of perturbed samples.
 
-6) simple VAE in model.py, to learn the underlying distribution of genes.
+6) simple VAE in model.py, to learn the underlying distribution of all genes
+
+7) simple VAE training code in training.py

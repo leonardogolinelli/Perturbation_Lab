@@ -12,7 +12,7 @@ class ZINBLoss(nn.Module):
         self.ridge_lambda = ridge_lambda
 
     def forward(self, x, mean, dispersion, pi, scale_factor=1.0):
-        x = x.float()
+        #x = x.float()
         mean = mean * scale_factor
 
         nb_case = (
@@ -50,7 +50,7 @@ class Encoder(nn.Module):
 
 
 # ----------------------------
-# DECODER (Conditional on Batch)
+# DECODER 
 # ----------------------------
 class Decoder(nn.Module):
     def __init__(self, latent_dim, hidden_dim, output_dim):

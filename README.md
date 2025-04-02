@@ -1,7 +1,7 @@
 **Warning**: this repo is a proof of concept. Minimal code was used. An environment with torch, numpy, cuda, matplotlib and scanpy installed should be sufficient.
 To install scanpy, check this out https://scanpy.readthedocs.io/en/stable/installation.html
 
-The idea of this repo is to illustrate a way of benchmarking of perturbation prediction experiments by using simulated data and artificially creating known, predictable and complex dependencies between different genes. For example, we can force the expression of one gene (here called "mechanicistic" gene) to be e.g. a linear or polinomial function of the expression of the other genes. We can tell whether a generative model has learned these dependencies by using perturbed, out-of-distribution observations for which we know a priori the effect on the mechanicistic gene.
+The idea of this repo is to illustrate a way of benchmarking of perturbation prediction experiments by using simulated data and artificially creating known, predictable and complex dependencies between different genes. For example, we can force the expression of one gene (here called "mechanicistic" gene) to be e.g. a linear or polinomial function of the expression of the other genes. We can tell whether a generative model has learned these dependencies by using perturbed, out-of-distribution observations for which we know a priori the effect on the mechanicistic gene. I have no idea whether this approach is already used \ to which extent in the literature. If it's already used -- well -- it was a good excercise.
 
 This repo also includes useful functions that you might want to use yourself or extend. 
 

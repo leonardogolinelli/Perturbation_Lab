@@ -1,3 +1,5 @@
+Warning: this repo is a proof of concept. Minimal code was used. 
+
 Notebook 1) Simulate gene expression data using known ZINB parameters and train a VAE to predict such parameters by minimizing ELBO.
 
 Notebook 2) Generate a mechanicistic gene - a gene for which its ZINB distribution depends directly on the expression of the other genes in a quantifiable and predictable way. Train the VAE on all genes (normal genes + mechanicistic gene).
